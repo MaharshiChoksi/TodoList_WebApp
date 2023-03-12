@@ -1,0 +1,14 @@
+This is the Header content for hamburger menu (src > Layout > Header.jsx)
+
+<img src={menu} className="h-10 max-md:h-8 max-sm:h-6 max-lg:visible lg:hidden" alt="menu"/>
+<div className="flex justify-between align-top h-auto gap-10 text-2xl max-lg:hidden">
+    <button>Home</button>
+    <button>Profile</button>
+    
+    -- Login button if not logged or logout
+    <button>Login</button>
+    <button>Logout</button>
+    
+    -- Register button
+    <button>Register</button>
+</div>
