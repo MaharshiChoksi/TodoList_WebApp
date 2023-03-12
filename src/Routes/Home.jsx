@@ -11,7 +11,7 @@ export const Home = () => {
         <Header />
         <Routes>
             <Route path="/" element={<Content />} />
-            <Route path="*" element={<ErrPage />} />
+            <Route path="/*" element={<ErrPage />} />
         </Routes>
         <Footer />
     </>
