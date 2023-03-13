@@ -1,11 +1,9 @@
 {
-    "build": {
-        "routes": [
-            {
-                "src": "/.*",
-                "status": 404,
-                "dest": "/ErrPage"
-            }
-        ]
-    }
+    "routes": [
+        {
+            "src": "/.*",
+            "status": 404,
+            "dest": "/ErrPage"
+        }
+    ]
 }
