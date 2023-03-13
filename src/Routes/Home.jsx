@@ -2,7 +2,6 @@ import { Routes, Route } from 'react-router-dom'
 import { Header } from '../Layout/Header'
 import { Content } from '../Layout/Content'
 import { Footer } from '../Layout/Footer'
-import { ErrPage } from '../Routes/ErrPage';
 
 
 export const Home = () => {
@@ -11,7 +10,6 @@ export const Home = () => {
         <Header />
         <Routes>
             <Route path="/" element={<Content />} />
-            <Route path="/cont" element={<ErrPage />} />
         </Routes>
         <Footer />
     </>
