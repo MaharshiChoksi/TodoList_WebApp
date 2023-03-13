@@ -3,7 +3,8 @@
       {
         "status": 404,
         "src": "/404",
-        "dest": "/ErrPage"
+        "dest": "./src/Routes/ErrPage.jsx"
       }
     ]
-}
+  }
+ 
