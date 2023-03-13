@@ -1,0 +1,9 @@
+{
+    "routes":[
+        {
+            "sources": "/(*)",
+            "headers": {"Location": "./src/Routes/ErrPage.jsx"},
+            "status": 404
+        }
+    ]
+}
