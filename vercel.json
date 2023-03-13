@@ -1,9 +1,9 @@
 {
-    "routes":[
+    "routes": [
         {
             "src": "/.*",
             "status": 404,
-            "dest": "./src/Routes/ErrPage.jsx"
+            "dest": "/ErrPage"
         }
     ]
 }
