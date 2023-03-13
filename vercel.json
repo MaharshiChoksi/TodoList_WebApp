@@ -1,0 +1,9 @@
+{
+    "routes": [
+      {
+        "status": 404,
+        "src": "/404",
+        "dest": "/ErrPage"
+      }
+    ]
+}
