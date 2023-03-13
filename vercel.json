@@ -1,0 +1,10 @@
+{
+    "routes": [
+      {
+        "status": 404,
+        "src": "/404",
+        "dest": "./src/Routes/ErrPage.jsx"
+      }
+    ]
+  }
+  
