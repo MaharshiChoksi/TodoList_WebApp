@@ -1,19 +1,17 @@
-import { useState } from "react";
 import { DateTime } from '../data/CalculateDate'
 
-export const Task = ({ props, onDelete }) => {
-    const [check, setCheck] = useState(false);
+export const Task = ({ props, onDelete, toggleStatus }) => {
 
     return (
         <div className="task flex flex-col items-center p-4 mt-5 gap-5 max-lg:gap-5 max-md:text-sm max-w-3xl border-2 border-yellow-400 rounded-xl text-center">
-            <span className={`${check === true && 'line-through'} text-start`}>{props.data}</span>
+            <span className={`${props.completed && 'line-through'} text-start`}>{props.data}</span>
             <div className="flex max-xs:flex-col items-center min-w-fit justify-evenly gap-5 w-full">
-                <input type="checkbox" className="scale-150" onClick={(e) => { setCheck(e.target.checked), check && (props.completed = check) }} />
+                <input type="checkbox" className="scale-150" defaultChecked={props.completed} onClick={(e) => { e.target.checked ? toggleStatus(props.id, DateTime()) : toggleStatus(props.id, "")}} />
                 <button className="min-w-fit h-fit border-2 rounded-lg text-lg max-lg:text-sm" onClick={() => onDelete(props.id)}>Delete</button>
                 <span className="text-lg max-md:text-xs">
                     Task Added Time: {props.AddTime}
                     <br />
-                    {check && ((props.completionTime = DateTime()), <span> Completion Time: {props.completionTime}</span>)}
+                    {props.completed && <span> Completion Time: {props.completionTime}</span>}
                 </span>
             </div>
         </div >

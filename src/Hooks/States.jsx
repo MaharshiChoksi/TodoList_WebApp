@@ -8,6 +8,9 @@ const TaskStore = (set) => ({
     },
     removeTask: (taskId) => {
         set((state) => ({ Tasks: state.Tasks.filter((i) => i.id !== taskId) }))
+    },
+    toggleComplete: (taskID, CmpTime) => {
+        set((state) => ({ Tasks: state.Tasks.map((i) => i.id == taskID ? {...i, completed : !i.completed, completionTime : CmpTime}: i) }))
     }
 })
 
