@@ -39,7 +39,7 @@ export const Content = () => {
             <div className="flex flex-wrap gap-5 justify-center">
                 <input type="text" name="task" placeholder="Enter your task" className="h-10 w-96 max-lg:w-52 rounded-xl bg-black border-2 white text-white p-2 text-xl max-lg:h-10 max-lg:text-lg" ref={inputVal} />
                 <button className="border-2 rounded-lg text-lg max-lg:text-sm" onClick={() => { const returned = validateAndAdd(((inputVal.current.value).toString()).trim()); returned === false ? setAlert(true) : (addTask(returned), setAlert(false)); inputVal.current.value = '' }}>Add Task</button>
-                {alertState && <span className="text-sm text-red-500 order-last">* Task can't be void</span>}
+                {alertState && <span className="text-sm font-bold text-red-500 order-last">* Task can't be void</span>}
             </div>
             <div className="flex flex-col pt-10 items-center">
                 {
