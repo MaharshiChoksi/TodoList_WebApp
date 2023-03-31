@@ -35,7 +35,7 @@ export const Content = () => {
     const [alertState, setAlert] = useState(false);
 
     return (
-        <div className="flex-grow text-2xl min-w-full p-10 pb-20 align-center justify-center">
+        <div className="flex-grow text-2xl min-w-full p-10 pb-20 justify-center">
             <div className="flex flex-wrap gap-5 justify-center">
                 <input type="text" name="task" placeholder="Enter your task" className="h-10 w-96 max-lg:w-52 rounded-xl bg-black border-2 white text-white p-2 text-xl max-lg:h-10 max-lg:text-lg" ref={inputVal} />
                 <button className="border-2 rounded-lg text-lg max-lg:text-sm" onClick={() => { const returned = validateAndAdd(((inputVal.current.value).toString()).trim()); returned === false ? setAlert(true) : (addTask(returned), setAlert(false)); inputVal.current.value = '' }}>Add Task</button>

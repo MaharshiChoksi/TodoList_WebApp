@@ -1,8 +1,8 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Home } from '../Routes/Home'
-import { Contact } from '../Routes/Contact'
-import { ErrPage } from '../Routes/ErrPage'
+import Contact from '../Routes/Contact'
+import ErrPage from '../Routes/ErrPage'
 
 function App() {
 
@@ -11,7 +11,7 @@ function App() {
 			<BrowserRouter>
 				<Routes>
 					<Route path="/" element={<Home />} />
-					<Route path="/Contact" element={<Contact />} />
+					<Route path="/contact" element={<Contact />} />
 					<Route path="*" element={<ErrPage />} />
 				</Routes>
 			</BrowserRouter>
