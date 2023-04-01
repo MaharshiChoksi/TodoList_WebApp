@@ -14,6 +14,9 @@ module.exports = {
       },
       animation: {
         "inout": "inout 4s ease-in-out infinite"
+      },
+      gridTemplateColumns:{
+        "half": "0.5fr 2fr"
       }
     },
   },
