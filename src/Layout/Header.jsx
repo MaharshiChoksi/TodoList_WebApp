@@ -6,7 +6,7 @@ import { useState } from 'react';
 const Menu = ({ ChangeState }) => {
     return (
         <div className='absolute flex min-w-full min-h-screen z-10 backdrop-blur-sm items-center justify-center top-0'>
-            <div className='flex flex-col gap-5 p-[10%] items-center relative border-2 border-gray-400 rounded-xl font-mono max-sm:text-3xl text-4xl md:text-6xl backdrop-blur-sm bg-violet-900/30'>
+            <div className='flex flex-col gap-5 p-[10%] items-center relative border-2 border-gray-400 rounded-xl font-mono max-sm:text-3xl text-4xl md:text-6xl bg-neutral-900/95'>
                 <button onClick={() => ChangeState(false)}><img src={close} className='absolute top-2 right-2 h-10 max-md:h-9' alt='Close Menu' /></button>
                 <Link to="/" onClick={() => ChangeState(false)} className='hover:border-b-2 hover:text-blue-500 border-solid border-blue-500 duration-75 rounded-sm'>Home</Link>
                 <Link to="/contact" onClick={() => ChangeState(false)} className='hover:border-b-2 hover:text-blue-500 border-solid border-blue-500 duration-75 rounded-sm'>Help</Link>
