@@ -2,12 +2,12 @@
 A basic todo list webapp
 
 
-This is the Version 3.0 of the ToDo list web app
+This is the Version 4.0 of the ToDo list web app
 
 Some New Features are added and removed the minor bugs.
 
-I have added the new features:
-  This is the final version of the website and it is ready to be used perfectly.
-  This version 3.0 of the web will allow users to use the web more interactively.
-  I have added the contact form as well as added my social media links.
-  Furthermore, with the help of contact form users can react me about any query and I will respond to them.
+In the new v-4.0 this are the new features:
+  Changed the Name of the Header
+  Removed the minor Bug from the menu page
+  Added the task edit Feature
+  Simplified the UI of the HomePage
