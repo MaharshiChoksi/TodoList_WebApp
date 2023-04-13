@@ -21,10 +21,10 @@ export const Task = ({ props, onDelete, toggleStatus, ChgData }) => {
     const [showHiddenDiv, setShowHiddenDiv] = useState(false);
     const borderColor = props.completed ? "border-green-500" : "border-yellow-400";
 
-    return (<>        <div className={`task flex flex-col items-center p-4 mt-5 gap-5 max-lg:gap-5 max-md:text-sm max-w-3xl border-2 ${borderColor} rounded-xl text-center`} onClick={() => setShowHiddenDiv(!showHiddenDiv)}>
-        <span className={`${props.completed && 'line-through'} text-start`}>{props.data}</span>
+    return (<>        <div className={`task flex flex-col items-center p-4 mt-5 gap-5 max-lg:gap-5 max-md:text-sm max-w-3xl border-2 ${borderColor} rounded-xl text-center`}>
+        <span className={`${props.completed && 'line-through'} text-start`} onClick={() => setShowHiddenDiv(!showHiddenDiv)}>{props.data}</span>
         <div className="flex max-xs:flex-col items-center min-w-fit justify-evenly gap-5 w-full">
-            <input type="checkbox" className="scale-150" defaultChecked={props.completed} onClick={(e) => { e.target.checked ? toggleStatus(props.id, DateTime()) : toggleStatus(props.id, "") }} />
+            <input type="checkbox" className="scale-150" checked={props.completed} onClick={(e) => { e.target.checked ? toggleStatus(props.id, true, DateTime()) : toggleStatus(props.id, false, DateTime()) }} />
             <button className="min-w-fit h-fit border-2 rounded-lg text-lg max-lg:text-sm" onClick={() => onDelete(props.id)}>Delete</button>
             <span className="text-lg max-md:text-xs">
                 Added on: {props.AddTime}
@@ -33,7 +33,6 @@ export const Task = ({ props, onDelete, toggleStatus, ChgData }) => {
             </span>
         </div>
     </div >
-
         {showHiddenDiv && <EditBar props={props} ChgData={ChgData} setShowHiddenDiv={setShowHiddenDiv} />}
     </>
     )

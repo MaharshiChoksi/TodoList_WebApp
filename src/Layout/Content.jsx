@@ -44,7 +44,7 @@ export const Content = () => {
             </div>
             <div className="flex flex-col pt-10 items-center">
                 {
-                    Tasks[0] && Tasks.map((val, key) => <Task props={val} key={key} onDelete={(childId) => removeTask(childId)} toggleStatus={(childId, CmpTime) => toggleComplete(childId, CmpTime)} ChgData={(taskID, NewData) => editData(taskID, NewData)} />)
+                    Tasks[0] && Tasks.map((val, key) => <Task props={val} key={key} onDelete={(childId) => removeTask(childId)} toggleStatus={(childId, status, CmpTime) => toggleComplete(childId, status, CmpTime)} ChgData={(taskID, NewData) => editData(taskID, NewData)} />)
                 }
             </div>
         </div >
