@@ -25,11 +25,12 @@ const validateAndAdd = (inputText) => {
 
 export const Content = () => {
     const inputVal = useRef();
-    const { Tasks, addTask, removeTask, toggleComplete } = useTaskstore((state) => ({
+    const { Tasks, addTask, removeTask, toggleComplete, editData } = useTaskstore((state) => ({
         Tasks: state.Tasks,
         addTask: state.addTask,
         removeTask: state.removeTask,
-        toggleComplete: state.toggleComplete
+        toggleComplete: state.toggleComplete,
+        editData: state.editData
     }));
 
     const [alertState, setAlert] = useState(false);
@@ -43,7 +44,7 @@ export const Content = () => {
             </div>
             <div className="flex flex-col pt-10 items-center">
                 {
-                    Tasks[0] && Tasks.map((val, key) => <Task props={val} key={key} onDelete={(childId) => removeTask(childId)}  toggleStatus={(childId, CmpTime)=> toggleComplete(childId, CmpTime)}/>)
+                    Tasks[0] && Tasks.map((val, key) => <Task props={val} key={key} onDelete={(childId) => removeTask(childId)} toggleStatus={(childId, CmpTime) => toggleComplete(childId, CmpTime)} ChgData={(taskID, NewData) => editData(taskID, NewData)} />)
                 }
             </div>
         </div >

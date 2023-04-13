@@ -11,6 +11,9 @@ const TaskStore = (set) => ({
     },
     toggleComplete: (taskID, CmpTime) => {
         set((state) => ({ Tasks: state.Tasks.map((i) => i.id == taskID ? {...i, completed : !i.completed, completionTime : CmpTime}: i) }))
+    },
+    editData: (taskID, NewData) =>{
+        set((state) => ({ Tasks: state.Tasks.map((i) => i.id == taskID ? {...i, data: NewData}: i)}))
     }
 })
 
