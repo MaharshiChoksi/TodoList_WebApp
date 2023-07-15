@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Home } from '../Routes/Home'
 import Contact from '../Routes/Contact'
 import ErrPage from '../Routes/ErrPage'
+import { Deleted } from '../Routes/Deleted'
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
 				<Routes>
 					<Route path="/" element={<Home />} />
 					<Route path="/contact" element={<Contact />} />
+					<Route path="/deleted" element={<Deleted />} />
 					<Route path="*" element={<ErrPage />} />
 				</Routes>
 			</BrowserRouter>
