@@ -10,6 +10,7 @@ const Menu = ({ ChangeState }) => {
                 <button onClick={() => ChangeState(false)}><img src={close} className='absolute top-2 right-2 h-10 max-md:h-9' alt='Close Menu' /></button>
                 <Link to="/" onClick={() => ChangeState(false)} className='hover:border-b-2 hover:text-blue-500 border-solid border-blue-500 duration-75 rounded-sm'>Home</Link>
                 <Link to="/contact" onClick={() => ChangeState(false)} className='hover:border-b-2 hover:text-blue-500 border-solid border-blue-500 duration-75 rounded-sm'>Help</Link>
+                <Link to="/deleted" onClick={() => ChangeState(false)} className='hover:border-b-2 hover:text-blue-500 border-solid border-blue-500 duration-75 rounded-sm'>Deleted Tasks</Link>
                 <div className='grid grid-cols-2 gap-5 text-center pt-10'>
                     <Link to="https://www.linkedin.com/in/maharshi-choksi-155143208/" target='_blank' className='socialmedia'>LinkedIn</Link>
                     <Link to="https://github.com/GDeveloper22/" target='_blank' className='socialmedia'>Github</Link>
@@ -33,6 +34,7 @@ export const Header = () => {
             <span className="flex justify-between min-h-fit gap-10 text-2xl max-lg:hidden">
                 <Link to="/" className='hover:border-b-2 hover:text-blue-500 border-solid border-blue-500 duration-75 rounded-sm'>Home</Link>
                 <Link to="/contact" className='hover:border-b-2 hover:text-blue-500 border-solid border-blue-500 duration-75 rounded-sm'>Help</Link>
+                <Link to="/deleted" className='hover:border-b-2 hover:text-blue-500 border-solid border-blue-500 duration-75 rounded-sm'>Deleted Tasks</Link>
             </span>
         </div>
     )

@@ -41,7 +41,7 @@ const HelpForm = () => {
         <div className="flex flex-col flex-grow min-w-full items-center p-10 bg-black font-mono font-bold">
             <ToastContainer autoClose={3000} />
             <form onSubmit={handleSubmit(SubmitStatus)} className='grid grid-cols-half gap-5 p-5 items-start h-fit justify-center border-2 border-gray-400 rounded-xl font-mono bg-violet-900/30'>
-                <div className="col-span-2 text-center pb-7">Contact Form</div>
+                <div className="col-span-2 text-center pb-7 text-5xl max-xs:text-2xl">Contact Form</div>
                 <label>Name </label>
                 <input type="text" name="Name" placeholder="Name" {...register("Name", { required: true, })} className="rounded-2xl pl-2 font-medium text-black" maxLength={25} size={27} />
                 <label>Email </label>
