@@ -2,12 +2,13 @@ import React from 'react'
 import { useReducer } from 'react';
 import { Header } from '../Layout/Header';
 import { Footer } from '../Layout/Footer';
+import { Link } from 'react-router-dom';
 
 export const Login = () => {
     return (
         <>
             <Header />
-            <div className='flex-grow min-w-full justify-center'>
+            <div className='flex-grow min-w-full justify-center p-5'>
                 <div className="bg-gray-200 rounded-lg p-5 max-w-md mx-auto mt-10 shadow-md">
                     <div className="text-center mb-5">
                         <h1 className="text-2xl text-gray-700">Login</h1>
@@ -41,6 +42,9 @@ export const Login = () => {
                             </div>
                         </form>
                     </div>
+                </div>
+                <div className='text-lg max-w-md mx-auto top-5 pt-4'>
+                    New User? <Link to="/register" className='text-blue-600' >Register</Link>
                 </div>
             </div >
             <Footer />
@@ -83,8 +87,8 @@ export const Register = () => {
     return (
         <>
             <Header />
-            <div className='flex-grow min-w-full justify-center'>
-                <div className="bg-gray-200 rounded-lg p-5 max-w-md mx-auto mt-10 shadow-md">
+            <div className='flex-grow min-w-full justify-center p-5'>
+                <div className="bg-gray-200 rounded-lg p-5 max-w-md mx-auto mt-10 shadow-md bottom-5">
                     <div className="text-center mb-5">
                         <h1 className="text-2xl text-gray-700">Register</h1>
                     </div>
@@ -114,6 +118,9 @@ export const Register = () => {
                             </button>
                         </div>
                     </form>
+                </div>
+                <div className='text-lg max-w-md mx-auto pt-4'>
+                    Existing User? <Link to="/Login" className='text-blue-600' >Login</Link>
                 </div>
             </div>
             <Footer />
