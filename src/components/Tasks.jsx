@@ -9,9 +9,9 @@ const EditBar = ({ props, ChgData, setShowHiddenDiv }) => {
         <div className='flex flex-col gap-5 m-[10%] p-[2%] items-center relative border-2 border-gray-400 rounded-xl font-mono max-sm:text-xl text-4xl max-md:text-3xl bg-neutral-900/95'>
             <button onClick={() => setShowHiddenDiv(false)}><img src={close} className='absolute top-2 right-2 h-10 max-md:h-9' alt='Close Menu' /></button>
             <div>Edit your Task: </div>
-            <button className='flex justify-center items-center gap-4 border-solid border-white border-2 rounded-3xl p-2 text-2xl max-sm:text-lg' onClick={()=>{data.current.value += "•"}}><span className='border-solid rounded-full border-white border-8 max-sm:border-4'></span><span>Bullet</span></button>
+            <button className='flex justify-center items-center gap-4 border-solid border-white border-2 rounded-3xl p-2 text-xl max-sm:text-xs' onClick={()=>{data.current.value += "• "}}><span className='border-solid rounded-full border-white border-8 max-sm:border-4'></span><span>Bullet</span></button>
             <textarea type="text" name="task" defaultValue={props.data} placeholder="Edit your task" className=" rounded-xl bg-black border-2 text-white p-2 h-96 text-xl max-xs:w-64 max-sm:w-72 w-96 max-lg:h-72 max-lg:text-sm" ref={data} />
-            <input type="submit" className='socialmedia' onClick={() => (ChgData(props.id, data.current.value), setShowHiddenDiv(false))} />
+            <input type="submit" className='socialmedia' onClick={() => (ChgData(props.id, data.current.value.trim()), setShowHiddenDiv(false))} />
         </div>
     </div>)
 

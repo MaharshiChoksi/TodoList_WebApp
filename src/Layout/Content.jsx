@@ -10,6 +10,7 @@ const validateAndAdd = (inputText) => {
         }
         else {
             return {
+                // remove id and fetch id from the database 
                 id: (Math.floor(Math.random() * 100000)), // for deletion
                 completed: false, // to mark as complete and set the completion time
                 data: inputText,

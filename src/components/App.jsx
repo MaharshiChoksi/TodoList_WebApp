@@ -5,14 +5,9 @@ import Contact from '../Routes/Contact'
 import ErrPage from '../Routes/ErrPage'
 import { Deleted } from '../Routes/Deleted'
 import { useState } from 'react'
-import { Login, Register } from './Login'
+import { Login} from './Login'
+import { Register} from './Register'
 
-
-
-
-const PrivateRoute = ({ element, isAuthenticated }) => {
-	return isAuthenticated ? element : <Navigate to="/Login" />
-}
 
 function App() {
 	const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -21,11 +16,18 @@ function App() {
 		<div className="App flex flex-col min-h-screen">
 			<BrowserRouter>
 				<Routes>
-					<Route path="/" element={<PrivateRoute element={<Home />} isAuthenticated={isAuthenticated} />} />
+					{/* <Route path="/" element={isAuthenticated ? <Home /> : <Navigate to='/Login' />} />
 					<Route path="/contact" element={<Contact />} />
-					<Route path="/deleted" element={<PrivateRoute element={<Deleted />} isAuthenticated={isAuthenticated} />} />
-					<Route path="/Login" element={<Login/>}></Route>
-					<Route path="/Register" element={<Register/>}></Route>
+					<Route path="/deleted" element={isAuthenticated ? <Deleted /> : <Navigate to='/Login' />} />
+					<Route path="/Login" element={isAuthenticated ? <Navigate to='/' /> : <Login />}></Route>
+					<Route path="/Register" element={isAuthenticated ? <Navigate to='/' /> : <Register />}></Route>
+					<Route path="*" element={<ErrPage />} /> */}
+
+					<Route path="/" element={<Home />} />
+					<Route path="/contact" element={<Contact />} />
+					<Route path="/deleted" element={<Deleted />} />
+					<Route path="/Login" element={<Login />}></Route>
+					<Route path="/Register" element={<Register />}></Route>
 					<Route path="*" element={<ErrPage />} />
 				</Routes>
 			</BrowserRouter>
