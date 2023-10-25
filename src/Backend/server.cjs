@@ -27,7 +27,6 @@ app.post('/getdata/:type', async (req, res) => {
   const coll = (req.params.type === 'admin') ? process.env.ADMIN_DB_COLLECTION : req.body.username;
 
   try {
-    console.log(req.body);
     const connection = client.db(db).collection(coll);
     const data = await connection.find(req.body).toArray();
     res.json(data);
@@ -43,15 +42,58 @@ app.post('/insertdata/:type', async (req, res) => {
   const db = (req.params.type === 'admin') ? process.env.ADMIN_DB : process.env.USER_DB;
   const coll = (req.params.type === 'admin') ? process.env.ADMIN_DB_COLLECTION : req.body.username;
 
-  const connection = client.db(db).collection(coll);
-
+  
   try {
+    const connection = client.db(db).collection(coll);
     const result = await connection.insertOne(req.body);
     res.status(201).json(result);
   } catch (error) {
     res.json({ error: `An error occurred while inserting data.${error}` });
   }
 });
+
+
+// Delete data from MongoDB
+app.delete('/deletedata/:type', async (req, res) => {
+  const db = (req.params.type === 'admin') ? process.env.ADMIN_DB : process.env.USER_DB;
+  const coll = (req.params.type === 'admin') ? process.env.ADMIN_DB_COLLECTION : req.body.username;
+
+  try {
+    const connection = client.db(db).collection(coll);
+    const result = await connection.deleteOne(req.body);
+    if (result.deletedCount === 0) {
+      res.status(404).json({ error: 'No data deleted.' });
+    } else {
+      res.status(204).send("Data Deletion successful!");
+    }
+  } catch (error) {
+    console.error(`Error deleting data: ${error}`);
+    res.status(500).json({ error: 'An error occurred while deleting data.' });
+  }
+});
+
+// Update data in MongoDB
+app.put('/updatedata/:type', async (req, res) => {
+  const db = (req.params.type === 'admin') ? process.env.ADMIN_DB : process.env.USER_DB;
+  const coll = (req.params.type === 'admin') ? process.env.ADMIN_DB_COLLECTION : req.body.username;
+
+  try {
+    const connection = client.db(db).collection(coll);
+    const id = req.body.id;
+    const updatedData = req.body;
+
+    const result = await connection.updateOne({ _id: id }, { $set: updatedData });
+    if (result.modifiedCount === 0) {
+      res.status(404).json({ error: 'No data updated.' });
+    } else {
+      res.status(200).json({ message: 'Data updated successfully.' });
+    }
+  } catch (error) {
+    console.error(`Error updating data: ${error}`);
+    res.status(500).json({ error: 'An error occurred while updating data.' });
+  }
+});
+
 
 // Start the Express server &connect to mongodb
 
@@ -82,37 +124,4 @@ app.listen(port, async () => {
 
 
 
-// // Update data in MongoDB
-// app.put('/updatedata/:id', async (req, res) => {
-//   const collection = client.db('your-database-name').collection('your-collection-name');
-//   const id = req.params.id;
-//   const updatedData = req.body;
-//   try {
-//     const result = await collection.updateOne({ _id: ObjectId(id) }, { $set: updatedData });
-//     if (result.modifiedCount === 0) {
-//       res.status(404).json({ error: 'No data updated.' });
-//     } else {
-//       res.status(200).json({ message: 'Data updated successfully.' });
-//     }
-//   } catch (error) {
-//     console.error(`Error updating data: ${error}`);
-//     res.status(500).json({ error: 'An error occurred while updating data.' });
-//   }
-// });
 
-// // Delete data from MongoDB
-// app.delete('/deletedata/:id', async (req, res) => {
-//   const collection = client.db('your-database-name').collection('your-collection-name');
-//   const id = req.params.id;
-//   try {
-//     const result = await collection.deleteOne({ _id: ObjectId(id) });
-//     if (result.deletedCount === 0) {
-//       res.status(404).json({ error: 'No data deleted.' });
-//     } else {
-//       res.status(204).send();
-//     }
-//   } catch (error) {
-//     console.error(`Error deleting data: ${error}`);
-//     res.status(500).json({ error: 'An error occurred while deleting data.' });
-//   }
-// });

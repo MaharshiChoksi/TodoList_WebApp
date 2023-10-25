@@ -25,6 +25,22 @@ const formReducer = (state, action) => {
     }
 };
 
+const formvalidation = (formData) => {
+    if (!/^[A-Za-z]+$/.test(formData.name.trim())) {
+        throw new Error("Invalid name");
+    }
+    // add one more logic to match similar username found or not if yes then throw error 
+    if (!/^[A-Za-z0-9]+$/.test(formData.username.trim())) {
+        throw new Error("Invalid username");
+    } if (!/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/.test(formData.email.trim())) {
+        throw new Error("Invalid email");
+    } if (formData.password.trim().length < 8) {
+        throw new Error("Password too short")
+    } if (!(formData.password.trim() === formData.confirmPassword.trim())) {
+        throw new Error("Password doesn't match");
+    }
+}
+
 // Registration form
 export const Register = () => {
 
@@ -40,6 +56,7 @@ export const Register = () => {
         event.preventDefault();
 
         try {
+            formvalidation(formData);
             const response = await fetch('http://localhost:3000/insertdata/admin', {
                 method: 'POST',
                 headers: {
@@ -60,7 +77,7 @@ export const Register = () => {
             }
         }
         catch (error) {
-            toast.error("Network Error", { position: toast.POSITION.TOP_RIGHT });
+            toast.error(error.message, { position: toast.POSITION.TOP_RIGHT });
         }
     };
 
@@ -80,7 +97,7 @@ export const Register = () => {
                                     {field.charAt(0).toUpperCase() + field.slice(1)}
                                 </label>
                                 <input
-                                    type={field === 'email' ? 'email' : 'text'}
+                                    type={field === 'email' ? 'email' : field === 'password' || 'confirmPassword' ? 'password' : 'text'}
                                     id={field}
                                     name={field}
                                     required

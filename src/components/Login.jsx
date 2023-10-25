@@ -52,7 +52,7 @@ export const Login = () => {
             }
         }
         catch (error) {
-            toast.error(`${error}`, { position: toast.POSITION.TOP_RIGHT });
+            toast.error(`${error.message}`, { position: toast.POSITION.TOP_RIGHT });
         }
     }
 
