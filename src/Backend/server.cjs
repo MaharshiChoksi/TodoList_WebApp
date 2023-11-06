@@ -16,7 +16,7 @@ app.use(express.json());
 // Use the cors middleware with appropriate options
 app.use(
   cors({
-    origin: 'http://localhost:5173', // Replace with your frontend's domain
+    origin: 'https://bug-free-robot-gpx597wv5wjh9rrw-5173.app.github.dev:5173', // Replace with your frontend's domain
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   })
 );

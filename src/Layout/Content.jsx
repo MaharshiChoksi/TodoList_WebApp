@@ -15,7 +15,8 @@ const validateAndAdd = (inputText) => {
                 completed: false, // to mark as complete and set the completion time
                 data: inputText,
                 AddTime: DateTime(),
-                completionTime: ''
+                completionTime: '',
+                deleted: false
             }
         }
     }
